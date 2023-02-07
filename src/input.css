@@ -511,7 +511,7 @@
   }
 
   .education .box-container .box .content h3 {
-    font-size: 1.5rem;
+    /* font-size: 2rem; */
     color: #012970;
     padding: 0.5rem 0;
     font-weight: 600;
@@ -520,7 +520,7 @@
   }
 
   .education .box-container .box .content p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-left: 1rem;
     text-align: left;
     color: #000;
@@ -538,7 +538,7 @@
   @media screen and (max-width: 600px) {
     .education .box-container .box {
       flex-direction: column;
-      width: 80%;
+      width: 100%;
     }
 
     .education .box-container .box .image {
@@ -584,7 +584,7 @@
     display: inline;
     padding: 0.75rem;
     border-radius: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #fff;
     background: rgb(12, 12, 12);
     margin-right: 2rem;
@@ -650,14 +650,14 @@
       bottom: 0;
       left: 50%;
       margin-left: -3px;
-      z-index: -2;
+      
   }
 
   .experience .container {
-      padding: 10px 40px;
+      padding: 20px 40px;
       position: relative;
       background-color: inherit;
-      width: 50%;
+      width: 80%;
   }
 
   /*circles on timeline*/
@@ -671,7 +671,6 @@
       border: 4px solid #ffae00;
       top: 15px;
       border-radius: 50%;
-      z-index: 100;
       font-size: 1.89rem;
       text-align: center;
       font-weight: 600;
@@ -726,7 +725,7 @@
   }
 
   .experience .content .tag {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       padding-top: 1.5rem;
       padding-left: 1.5rem;
       color: #fff;
@@ -739,13 +738,13 @@
   }
 
   .experience .content .desc h3 {
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: 600;
       color: #fff;
   }
 
   .experience .content .desc p {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
   }
 
   /* view all button */
@@ -962,10 +961,10 @@
       color: #fff;
       border: none;
       outline: none;
-      font-size: 1rem;
+      font-size: 1.5rem;
       cursor: pointer;
       border-radius: 5px;
-      padding: 1rem;
+      padding: 2rem;
       background: #2506ad;
       box-shadow: 0px 5px 10px rgba(48, 68, 247, 0.6);
       transition: 0.3s ease;
