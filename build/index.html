@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="Maurice Odo, portfolio, Maurice, full stack dev, personal portfolio, portfolio design, portfolio website, personal portfolio" />
+    <meta name="description" content="Welcome to Maurice's Portfolio. Full-Stack Web Developer" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- EXTERNAL FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="./assets/images/cyber-security.png" type="image/x-png">
+
+   
+
+
+    
+    <!-- SWEETALERT CDN-->
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+   
+    <!-- JQUERY CDN
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- EMAILJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- EMAILJS BEGINS -->
+    <script type="text/javascript">
+        (function () {
+
+            emailjs.init('WXvTbCx41g7nJhbVZ');
+        })();
+    </script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                emailjs.sendForm('service_iiv2jbd', 'template_1nia8s9', '#contact-form')
+                    .then(function (response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        document.getElementById("contact-form").reset();
+                        alert('Your message has been successfully sent to Maurice, will reply shortly. Thanks!😊 ');
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                        alert("Form Submission Failed😢 Please Try Again!");
+                    });
+            });
+        }
+    </script>
+    <!-- EMAIL JS ENDS -->
+    <script src="js/main.js"></script>
+
+    <title>Portfolio</title>
+</head>
+<body class="min-h-screen  bg-slate-50 dark:bg-black dark:text-white font-Default">
+    <header class="sticky top-0 z-50 bg-white text-black dark:text-slate-300 dark:bg-black mx-auto">
+        <section class="mx-auto flex max-w-full items-center justify-between p-4">
+            <a class="navbar-brand text-2xl font-bold" href="#"><i class="fab fa-accusoft text-alt-dark"></i>LPHACODES</a>
+            <div>
+                <button id="hamburger-button" class="relative h-8 w-8 cursor-pointer text-3xl md:hidden ">
+                    <!-- &#9776; -->
+                    <div
+                        class="absolute top-4 -mt-0.5 h-1 w-8 rounded bg-black dark:bg-white transition-all duration-500 before:absolute before:h-1 before:w-8 before:-translate-x-4 before:-translate-y-3 before:rounded before:bg-black before:dark:bg-white before:transition-all before:duration-500 before:content-[''] after:absolute after:h-1 after:w-8 after:-translate-x-4 after:translate-y-3 after:rounded after:bg-black after:dark:bg-white after:transition-all after:duration-500 after:content-['']">
+                    </div>
+                </button>
+                <nav class="hidden space-x-8 text-lg md:block " aria-label="main">
+                    <a href="#" class="w-full py-6 text-center hover:opacity-90">Home</a>
+                    <a href="#about" class="w-full py-6 text-center hover:opacity-90">About</a>
+                    <a href="#education" class="w-full py-6 text-center hover:opacity-90">Education</a>
+                    <a href="#projects" class="w-full py-6 text-center hover:opacity-90">Projects</a>
+                    <!-- <a href="#articles" class="w-full py-6 text-center hover:opacity-90">Articles</a> -->
+                    <a href="#experience" class="w-full py-6 text-center hover:opacity-90">Experiences</a>
+
+                    <a href="#contact" class="w-full py-6 text-center hover:opacity-90">Contact</a>
+                    <!-- <a href="#"
+                            class="border-double border-2 border-indigo-600 rounded-xl p-2 hover:bg-indigo-700 hover:text-white"
+                            target="_blank" rel="noopener noreferrer">Register</a> -->
+                </nav>
+            </div>
+        </section>
+        <section id="mobile-menu"
+            class="top-68 justify-content-center absolute hidden w-full origin-top animate-open-menu flex-col bg-white text-black dark:bg-black dark:text-slate-50 text-3xl">
+            <!-- <button class="text-8xl self-end px-6">
+                        &times;
+                    </button> -->
+            <nav class="flex min-h-screen text-3xl flex-col items-center py-8" aria-label="mobile">
+                <a href="#" class="w-full py-6 text-center hover:opacity-90"><i class="fas fa-home text-alt-dark"></i>
+                    Home</a>
+                <a href="#about" class="w-full py-6 text-center hover:opacity-90"><i
+                        class="fas fa-user text-alt-dark"></i> About</a>
+                <a href="#education" class="w-full py-6 text-center hover:opacity-90"><i
+                        class="fas fa-graduation-cap text-alt-dark"></i> Education</a>
+                <a href="#projects" class="w-full py-6 text-center hover:opacity-90"><i
+                        class="fas fa-clipboard-list text-alt-dark"></i> Projects</a>
+
+                <a href="#experience" class="w-full py-6 text-center hover:opacity-90"><i
+                        class="fas fa-id-badge text-alt-dark"></i> Experiences</a>
+
+                <a href="#contact" class="w-full py-6 text-center hover:opacity-90"><i
+                        class="fas fa-phone-alt text-alt-dark"></i> Contact</a>
+
+            </nav>
+        </section>
+    </header>
+
+    <main class=" min-h-screen max-w-full items-center">
+        
+        <section id="home"
+            class="home w-full min-h-screen relative widescreen:section-min-height tallscreen:section-min-height mb-12 flex scroll-mt-40 flex-col-reverse text-start items-center justify-between  gap-8 p-6 sm:flex-row">
+            <div id="particles-js"></div>
+           
+            <article class="sm:w-1/2 z-10">
+                <h2 data-aos="zoom-in"
+                    class="max-w-full text-center text-5xl  font-bold text-slate-900 dark:text-white sm:text-left ">
+                    I’m Maurice
+                    <span class="text-alt-dark">Odo</span>
+    
+                </h2>
+    
+                <p class="mt-4 max-w-full text-center text-3xl text-slate-700 dark:text-slate-400 sm:text-left">
+                    I am into in <span class="typing-text"></span>
+    
+                </p>
+
+                <a href="#about" class="btn p-2  text-lg text-center"><span>About Me</span>
+                    <i class="fas fa-arrow-circle-down"></i>
+                </a>
+    
+    
+                <div class="socials sm:text-left text-center">
+                    <ul class="social-icons w-full">
+                        <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/odo-maurice/"
+                                target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a class="github" aria-label="GitHub" href="https://github.com/odomaurice" target="_blank"><i
+                                    class="fab fa-github"></i></a></li>
+                        <li><a class="twitter" aria-label="Twitter" href="@AlphaOf9ja" target="_blank"><i
+                                    class="fab fa-twitter"></i></a></li>
+                        <li><a href="mailto:odomaurice501@gmail.com" class="fas fa-envelope" aria-label="Mail"
+                                target="_blank"></a></li>
+    
+    
+    
+                    </ul>
+                </div>
+    
+            </article>
+    
+            <img data-aos="zoom-out" draggable="false" class="w-full sm:w-1/3 z-10 rounded-full shadow-2xl tilt"
+                src="./images/profileimg.jpg" alt="" />
+    
+    
+    
+        </section>
+    
+    
+        <hr class="mx-auto w-1/2 bg-black dark:bg-white" />
+    
+    
+        <!-- hero section ends -->
+    
+        <section id="about"
+            class="widescreen:section-min-height min-h-screen my-12 tallscreen:section-min-height mb-12 flex scroll-mt-40 flex-col-reverse w-full items-center justify-around  gap-8 p-6 sm:flex-row-reverse">
+            <article class="sm:w-1/2">
+                <h2 data-aos="fade-up"
+                    class="max-w-md text-center my-6 text-4xl font-bold text-slate-900 dark:text-white sm:text-left sm:text-4xl">
+                    <i class="fas fa-user-alt"></i> About
+                    <span class="text-alt-dark">Me...</span>
+    
+                </h2>
+                <p class="text-3xl sm:text-xl">From a very young age, I have always derived this joy, satisfaction and sense of accomplishment from
+                    inventing new
+                    things, for establishing projects that weren't initially there.I was always on my dad's computer and most
+                    times, I
+                    destroyed some of his equipment to try and repair them. I only had limited time as he limited us from using
+                    his system. <br>
+                    Growing up, I spent most times in Cyber-cafe as systems were limited trying to work on some new things. This
+                    increased my desire for problem solving and my overall love for the tech field.
+                
+                </p>
+                <p class="btn my-6">
+                    <a href="./Resume.pdf/01MauriceOdo.pdf" target="_blank" class="btn text-center my-6 hover:text-alt-dark text-3xl"><span>Resume</span>
+    
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </p>
+            </article>
+            <img class="sm:w-1/4 w-full shadow-2xl rounded-xl" src="./images/abtimg.jpg"
+                alt="about-img" />
+        </section>
+
+<!-- skills section starts -->
+<section class="skills widescreen:section-min-height min-h-screen my-12 tallscreen:section-min-height" id="skills">
+    <h2 class="heading text-center text-black dark:text-slate-50 text-4xl sm:text-4xl"><i class="fas fa-laptop-code"></i> Abilities & <span>Skills</span></h2>
+    <div class="container">
+        <div class="row" id="skillsContainer">
+            <!-- <h3 class="heading"> Frontend <span>Skills</span></h3> -->
+
+
+
+
+            <!-- <a href="#" class="lab la-html5 text-warning" target="_blank"></a>
+        <a href="#" class="lab la-css3-alt text-blue" aria-label="css3" target="_blank"></a>
+        <a href="#" class="lab la-js-square text-warning" aria-label="javascript" target="_blank"></a>
+        <a href="#" class="lab la-sass text-red" aria-label="sass" target="_blank"></a>
+        <a href="#" class="lab la-bootstrap" aria-label="bootstrap" target="_blank"></a>
+        <a href="#" class="lab la-figma text-success" aria-label="figma" target="_blank"></a>
+        <a href="#" class="lab la-react text-primary" aria-label="react" target="_blank"></a> -->
+
+        </div>
+
+
+    </div>
+</section>
+
+
+<!-- education section starts -->
+<section class="education my-16  sm:my-32" id="education">
+
+    <h1 class="heading text-black text-center dark:text-slate-50 text-4xl sm:text-4xl"><i class="fas fa-graduation-cap text-alt-dark"></i> My <span>Learning</span></h1>
+
+
+    <div class="box-container">
+
+        <div class="box">
+
+            <div class="content">
+                <h3>Advanced Web development</h3>
+                <p>Aptech Computer Education</p>
+                <h4>2021-2022 | Completed</h4>
+            </div>
+        </div>
+
+        <div class="box">
+
+            <div class="content">
+                <h3>Web development</h3>
+                <p>Angela Yu's Udemy Web development Bootcamp Course</p>
+                <h4>2021-2022 | Completed</h4>
+            </div>
+        </div>
+        <div class="box">
+
+            <div class="content">
+                <h3>Web development</h3>
+                <p>Kevin Powell's Youtube tutorials</p>
+                <h4>2021-2022 | Completed</h4>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- education section ends -->
+
+<section class="my-12 sm:my-32  p-4 w-full text-xl work" id="work"
+    data-aos="fade-left" data-aos-delay="200">
+    <h2 class="mb-6 text-center text-4xl font-bold text-black dark:text-slate-50 sm:text-4xl">
+        PROJECTS
+    </h2>
+    <ul
+        class="mx-auto my-12 flex list-none flex-col items-center justify-between align-middle gap-8 lg:flex-row lg:text-2xl sm:text-base">
+        <!-- 1st card -->
+        <li data-aos="flip-up" data-aos-delay="200"
+            class="flex w-full flex-col items-center rounded-xl  border border-solid border-slate-900 bg-white py-6 px-4 shadow-xl  dark:border-gray-100 dark:bg-black sm:w-5/6 sm:text-base">
+            <img src="./images/undraw_stability_ball_b-4-ia.svg" alt="Explorer" class="mb-6 w-full" />
+
+
+            </div>
+            <h3 class="text-start mt-2 text-3xl text-slate-900 dark:text-white">
+                ALPHA ENERGY
+            </h3>
+            <p class="mt-2 md:text-xl lg:text-base  text-start sm:text-base text-slate-500 dark:text-slate-400 px-2">
+                I developed a responsive website with basic html, CSS, Javascript and bootstrap. This is a weight loss company website
+                that helps clients to live healthily through dieting and exercising.
+            </p>
+
+            <div class="btns flex ">
+                <a href="https://odomaurice.github.io/Alpha-energy/index.html" class="btn" target="_blank"><i
+                        class="fas fa-eye"></i> View</a>
+                <a href="https://github.com/odomaurice/alpha-energy.git" class="btn" target="_blank">Code <i
+                        class="fas fa-code"></i></a>
+            </div>
+
+            <hr class="mx-auto mt-3 w-full bg-black dark:bg-white" />
+
+            
+
+        </li>
+
+        <!-- 1st card ends -->
+
+        <!-- 2nd card begins -->
+
+        <li data-aos="flip-up" data-aos-delay="200"
+            class="flex w-full flex-col items-center rounded-xl border border-solid border-slate-900 bg-white py-6 px-4 shadow-xl  dark:border-gray-100 dark:bg-black sm:w-5/6 sm:text-base">
+            <img src="./images/undraw_savings_re_eq4w.svg" alt="Explorer" class="mb-6 w-full" />
+        
+        
+            </div>
+            <h3 class="text-start mt-2 text-3xl text-slate-900 dark:text-white">
+                ARKINVEST
+            </h3>
+            <p class="mt-2 md:text-xl lg:text-base  text-start sm:text-base text-slate-500 dark:text-slate-400 px-2">
+                A clone web application of the Arkinvest company website which is a crypto investment platform. Built with PHP and
+                mySQL. Responsive on all mobile sizes.
+            </p>
+        
+            <div class="btns">
+                <a href="https://arkinvestglobal.com/" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                <a href="https://github.com/odomaurice/Arkinvest-PHP.git" class="btn" target="_blank">Code <i
+                        class="fas fa-code"></i></a>
+            </div>
+        
+            
+            <hr class="mx-auto mt-3 w-full bg-black dark:bg-white" />
+        
+           
+        </li>
+
+
+        
+
+
+        <!-- 2nd card ends -->
+
+        <!-- 3rd card  -->
+
+        <li data-aos="flip-up" data-aos-delay="200"
+            class="flex w-full flex-col items-center rounded-xl  border border-solid border-slate-900 bg-white py-6 px-4 shadow-xl  dark:border-gray-100 dark:bg-black sm:w-5/6 sm:text-base">
+            <img src="./images/undraw_crypto_portfolio_2jy5.svg" alt="Explorer" class="mb-6 w-full" />
+        
+        
+            </div>
+            <h3 class="text-start mt-2 text-3xl text-slate-900 dark:text-white">
+                CYCLEPAY
+            </h3>
+            <p class="mt-2 md:text-xl lg:text-base  text-start sm:text-base text-slate-500 dark:text-slate-400 px-2">
+                Cyclepay is a Crypto-based company that's into maximizing client profits through various means: stocks, real-estate,
+                foreign-exchange etc. A multi-page website built using Nodejs, expressjs, embedded javascript templatethen sass and
+                bootstrap for the styling. Fully responsive on all mobile and desktop sizes
+            </p>
+        
+            <div class="btns">
+                <a href="https://cyclepay.onrender.com/" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                <a href="https://github.com/odomaurice/cyclepay.git" class="btn" target="_blank">Code <i
+                        class="fas fa-code"></i></a>
+            </div>
+        
+           
+            <hr class="mx-auto mt-3 w-full bg-black dark:bg-white" />
+        
+           
+        
+        </li>
+
+
+
+
+    </ul>
+    <ul
+        class="mx-auto my-12 flex list-none flex-col items-center justify-between align-middle gap-8 lg:flex-row lg:text-2xl sm:text-base">
+        <!-- 4th card -->
+        <li data-aos="flip-up" data-aos-delay="200"
+            class="flex w-full flex-col items-center rounded-xl  border border-solid border-slate-900 bg-white py-6 px-4 shadow-xl  dark:border-gray-100 dark:bg-black sm:w-5/6 sm:text-base">
+            <img src="./images/undraw_explore_re_8l4v.svg" alt="Explorer" class="mb-6 w-full" />
+    
+    
+            </div>
+            <h3 class="text-start mt-2 text-3xl text-slate-900 dark:text-white">
+                TODOLIST
+            </h3>
+            <p class="mt-2 md:text-xl lg:text-base  text-start sm:text-base text-slate-500 dark:text-slate-400 px-2">
+                A to-do-list app with great UI/UX built with Node.js and with dependencies: express, body-parser, ejs, lodash, mongoose
+                etc. Capable of adding and deleting items and storing them in a database(MongoDB Atlas). It's also capable of creating
+                multiple custom pages.
+            </p>
+    
+                <div class="btns">
+                    <a href="https://todolist-4uy8.onrender.com/" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                    <a href="https://github.com/odomaurice/todoapp.git" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+                </div>
+                    
+            <!-- <button
+                    class="mx-4 w-32 text-xl my-4 border text-black dark:text-white border-solid border-green-600 p-3 rounded-md hover:bg-green-600"
+                    type="submit"><a href="job_signup.html" target="_blank">Register</a></button> -->
+    
+            <hr class="mx-auto mt-3 w-full bg-black dark:bg-white" />
+    
+            <img class="w-10 mt-3" src="./images/TechJobber Icon@300x.png" alt="">
+    
+        </li>
+    
+        <!-- 4th card ends -->
+    
+        <!-- 2nd card begins -->
+    
+        <li data-aos="flip-up" data-aos-delay="200"
+            class="flex w-full flex-col items-center rounded-xl border border-solid border-slate-900 bg-white py-6 px-4 shadow-xl  dark:border-gray-100 dark:bg-black sm:w-5/6 sm:text-base">
+            <img src="./images/undraw_two_factor_authentication_namy.svg" alt="Explorer" class="mb-6 w-full" />
+    
+    
+            </div>
+            <h3 class="text-start mt-2 text-3xl text-slate-900 dark:text-white">
+                PASSWORD GENERATOR REACT
+            </h3>
+            <p class="mt-2 md:text-xl lg:text-base  text-start sm:text-base text-slate-500 dark:text-slate-400 px-2">
+                A password generator app built with React
+            </p>
+    
+            <div class="btns">
+                <a href="https://dancing-sprinkles-588ac2.netlify.app/" class="btn" target="_blank"><i class="fas fa-eye"></i>
+                    View</a>
+                <a href="https://github.com/odomaurice/password-generator_react.git" class="btn" target="_blank">Code <i
+                        class="fas fa-code"></i></a>
+            </div>
+    
+            <hr class="mx-auto mt-3 w-full bg-black dark:bg-white" />
+    
+            <img class="w-10 mt-3" src="./images/TechJobber Icon@300x.png" alt="">
+    
+        </li>
+    
+    
+    
+    
+    
+        <!-- 5th card ends -->
+    
+        <li data-aos="flip-up" data-aos-delay="200"
+            class="flex w-full flex-col items-center rounded-xl  border border-solid border-slate-900 bg-white py-6 px-4 shadow-xl  dark:border-gray-100 dark:bg-black sm:w-5/6 sm:text-base">
+            <img src="./images/undraw_weather_re_qsmd.svg" alt="Explorer" class="mb-6 w-full" />
+    
+    
+            </div>
+            <h3 class="text-start mt-2 text-3xl text-slate-900 dark:text-white">
+                REACT WEATHER APP
+            </h3>
+            <p class="mt-2 md:text-xl lg:text-base  text-start sm:text-base text-slate-500 dark:text-slate-400 px-2">
+                A weather forecast app built with React
+            </p>
+    
+            <div class="btns">
+                <a href="https://fancy-kangaroo-b088ae.netlify.app/" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                <a href="https://github.com/odomaurice/React_weather_app.git" class="btn" target="_blank">Code <i
+                        class="fas fa-code"></i></a>
+            </div>
+    
+            
+    
+            <hr class="mx-auto mt-3 w-full bg-black dark:bg-white" />
+    
+            
+    
+        </li>
+    
+    
+    
+    
+    </ul>
+</section>
+
+<!-- experience section starts -->
+<section class="experience my-32" id="experience">
+
+    <h2 class="heading text-black dark:text-white text-3xl sm:text-4xl text-center my-12"><i class="fas fa-briefcase text-alt-dark"></i> Experience </h2>
+
+    <div class="timeline">
+
+        <div class="container right">
+            <div class="content">
+                <div class="tag">
+                    <h2>Self Employed</h2>
+                </div>
+                <div class="desc">
+                    <h3>Full Stack Developer</h3>
+                    <p>August 2021 - present</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container left">
+            <div class="content">
+                <div class="tag">
+                    <h2>Mekanand Publishers</h2>
+                </div>
+                <div class="desc">
+                    <h3>Web Developer | Internship</h3>
+                    <p>June 2020 - December 2022</p>
+                </div>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <div class="tag">
+                    <h2>Careeredu | TechUni</h2>
+                </div>
+                <div class="desc">
+                    <h3>Chief Technology Officer | Lead Web Developer & Tutor</h3>
+                    <p>January 2023 till Present</p>
+                </div>
+            </div>
+        </div>
+
+
+
+</section>
+<!-- experience section ends -->
+
+<!-- contact section starts -->
+<section class="contact" id="contact">
+
+    <h2 class="heading text-3xl sm:text-4xl text-center"><i class="fas fa-headset text-alt-dark"></i> Get in <span>Touch</span></h2>
+
+    <div class="container">
+        <div class="content">
+            <div class="image-box">
+                <img draggable="false" src="./images/undraw_personal_email_re_4lx7.svg" width="300px" alt="">
+            </div>
+            <form id="contact-form">
+
+                <div class="form-group">
+                    <div class="field">
+                        <input type="text" name="name" placeholder="Name" required>
+                        <i class='fas fa-user'></i>
+                    </div>
+                    <div class="field">
+                        <input type="text" name="email" placeholder="Email" required>
+                        <i class='fas fa-envelope'></i>
+                    </div>
+                    <div class="field">
+                        <input type="text" name="phone" placeholder="Phone">
+                        <i class='fas fa-phone-alt'></i>
+                    </div>
+                    <div class="message">
+                        <textarea placeholder="Message" name="message" required></textarea>
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                </div>
+                <div class="button-area">
+                    <button type="submit">
+                        Submit <i class="fa fa-paper-plane"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- contact section ends -->
+
+<!-- footer section starts -->
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Maurice's Portfolio</h3>
+            <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br /> <br /> Connect
+                with me over live chat!</p>
+        </div>
+
+        <div class="box">
+            <h3>Important links</h3>
+            <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+            <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+            <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+            <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+            <a href="#work"><i class="fas fa-chevron-circle-right"></i> work</a>
+            <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <p> <i class="fas fa-phone"></i>+234 9019359361</p>
+            <p> <i class="fas fa-envelope"></i>odomaurice501@gmail.com</p>
+            <p> <i class="fas fa-map-marked-alt"></i>Enugu, Nigeria</p>
+            <div class="share">
+
+                <a href="https://www.linkedin.com/in/odo-maurice/" class="fab fa-linkedin" aria-label="LinkedIn"
+                    target="_blank"></a>
+                <a href="https://github.com/odomaurice" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
+                <a href="mailto:odomaurice501@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
+                <a href="https://twitter.com/AlphaOf9ja" class="fab fa-twitter" aria-label="Twitter"
+                    target="_blank"></a>
+                <a href="https://t.me/alphaCodez" class="fab fa-telegram-plane" aria-label="Telegram"
+                    target="_blank"></a>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="credit">Made & Designed with <i class="fa fa-heart"></i> by <a
+            href="https://www.linkedin.com/in/odo-maurice/">Maurice Odo</a></h1>
+
+</section>
+<!-- footer section ends -->
+
+
+        </main>
+
+  <!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+
+<!-- jquery cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- typed.js cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"
+    integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- particle.js links -->
+<script src="./js/particles.min.js"></script>
+<script src="./js/app.js"></script>
+
+<!-- vanilla tilt.js links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
+    integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- scroll reveal anim -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- scroll top btn -->
+<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+<!-- scroll back to top -->
+
+<script>
+
+
+    $('.menu-toggle').click(function () {
+
+        $('.site-nav').toggleClass('site-nav--open', 500);
+        $(this).toggleClass('open');
+
+    })
+</script>
+
+<script>
+    $("#button-reply").click(function () {
+        swal("Thanks for reaching out!", " will get back to you shortly!", "success");
+    })
+</script>
+
+
+<script src="./js/script.js"></script>  
+</body>
+</html>
