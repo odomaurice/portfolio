@@ -55,7 +55,7 @@ particlesJS(
         value: 2,
         random: true,
         anim: {
-          enable: false,
+          enable: true,
           speed: 40,
           size_min: 0.1,
           sync: false,
@@ -69,7 +69,7 @@ particlesJS(
         width: 1,
       },
       move: {
-        enable: false,
+        enable: true,
         speed: 3,
         direction: "bottom",
         random: false,
